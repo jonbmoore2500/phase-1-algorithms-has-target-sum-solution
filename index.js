@@ -1,5 +1,13 @@
 function hasTargetSum(array, target) {
-  // Write your algorithm here
+  const seenNumbers = new Set();
+  for (const number of array) {
+    const complement = target - number;
+
+    if (seenNumbers.has(complement)) return true;
+
+    seenNumbers.add(number);
+  }
+  return false;
 }
 
 /* 
@@ -12,6 +20,10 @@ function hasTargetSum(array, target) {
 
 /*
   Add written explanation of your solution here
+
+  the original solution described in solution section almost exactly matched my solution, so that was cool!
+  the optimized solution with the Set or Object was interesting. I considered adding the values to an Obj to check later,
+  but I didn't think about how it wouldn't actually be nested and I assumed it would still require O(n^2) so I didn't bother
 */
 
 // You can run `node index.js` to view these console logs
